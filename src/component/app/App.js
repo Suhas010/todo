@@ -1,10 +1,15 @@
 import React from "react";
+import { PersistGate } from 'redux-persist/integration/react'
+import { Provider } from "react-redux";
+import Main from "../main"
+import {store, persistor} from "../../store/index";
 
-class App extends React.Component {
-  render() {
-    const { name } = this.props;
-    return <h1>Hello {name}</h1>;
-  }
-}
+const App = () => (
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <Main />
+    </PersistGate>
+  </Provider>
+);
 
 export default App;
