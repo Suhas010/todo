@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.main-container {
+ 
+}
+.title {
+  text-align: center;
+}
+.h1-title {
+  border-bottom: solid 2px red;
+  font-family: 'Pacifico', cursive;
+  letter-spacing: 2px;
+}
+.del {
+  display: block;
+  position: fixed;
+  font-size: 25px;
+  right: 10px;
+  top: 20px;
+  z-index: 2;
+}
+.add-task {
+  display: block;
+  position: fixed;
+  font-size: 25px;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+}
+.ant-card-bordered:hover {
+  box-shadow: 2px 6px 20px 0px #b7b7b7;
+}

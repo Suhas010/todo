@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+/* body {
+  font-family: 'Pacifico', cursive;
+  color: white;
+  background-color: black;
+  letter-spacing: 2px;
+} */
+:root {
+  primary: red;
+}
