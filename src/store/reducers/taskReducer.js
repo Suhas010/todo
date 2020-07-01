@@ -1,21 +1,24 @@
+import { DUMMY_TASKS, ACTION_TYPE } from "../constants";
+
 const intialState = {
-  counter: 0
+  tasks: DUMMY_TASKS,
+  modal: false,
+  mode: false
 };
 
-const task = (state = intialState, {type, payload}) => {
-  console.log(type, "@@@")
+const task = (state = intialState, { type, payload }) => {
+  console.log(type)
   switch(type) {
-    case "ADD":
+    case ACTION_TYPE.ADD_TASK:
       return {
         ...state,
-        counter: payload
-      }
-    case "SUB":
+      };
+    case ACTION_TYPE.TOGGLE_MODAL:
       return {
         ...state,
-        counter: payload
-      }
-    case "RESET":
+        ...payload
+      };
+    case ACTION_TYPE.RESET_TASK:
       return intialState;
     default:
       return state;
