@@ -26,7 +26,7 @@ const Main = ({ dispatchAction }) => {
       </section>
       <Popconfirm
         title="Wanna add new task?"
-        onConfirm={() => dispatchAction(ACTION_TYPE.TOGGLE_MODAL, {modal: true, mode: true})}
+        onConfirm={() => dispatchAction(ACTION_TYPE.TOGGLE_MODAL, {modal: true, mode: false})}
         onCancel={() => {}}
         okText="Yes"
         cancelText="No"
@@ -37,8 +37,9 @@ const Main = ({ dispatchAction }) => {
   );
 }
 
-const mapStateToProps = ({ root }) => {
+const mapStateToProps = (root) => {
  console.log(root, "store")
+ return root
 };
 const mapDispatchToProps = ({
   dispatchAction

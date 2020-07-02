@@ -9,7 +9,7 @@ import "../../assets/styles/index.css";
 
 const App = () => (
   <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
+    <PersistGate loading={"Loading..."} persistor={persistor}>
       <Main />
       <Footer />
     </PersistGate>

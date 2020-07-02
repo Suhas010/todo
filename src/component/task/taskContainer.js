@@ -9,7 +9,14 @@ import Modal from 'antd/lib/modal/Modal';
 import TaskForm from './taskForm';
 const { TabPane } = Tabs;
 
-const TaskContainer = ({ tasks, modal, mode, dispatchAction}) => {
+const TaskContainer = ({ tasks, modal, mode, dispatchAction, loading }) => {
+
+  const isLoading = async function wait(ms) {
+    return new Promise(resolve => {
+      setTimeout(() => resolve(false), ms);
+    });
+  }
+
   const getTasksCards = type => {
     return DUMMY_TASKS.map(({ title, createdAt, desc, dueDate, id, state }) => (
       <Col sm={24} md={12} lg={6} span={1} key={id}>
@@ -20,6 +27,7 @@ const TaskContainer = ({ tasks, modal, mode, dispatchAction}) => {
           state={state}
           dueDate={dueDate}
           createdAt={createdAt}
+          loading={false}
         />
       </Col>
     ))
