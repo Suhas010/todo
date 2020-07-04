@@ -40,7 +40,8 @@ const [state, setState] = useState({
   }
   
   const markDone = id => {
-    dispatchAction(ACTION_TYPE.CHANGE_STATE, {id: id, state: "Compleated"})
+    dispatchAction(ACTION_TYPE.CHANGE_STATE, {id: id, state: "Compleated"});
+    notification.success({message: "Congratulations!!, You just compleated one task."})
   }
 
   const getTasksCards = () => {
