@@ -1,19 +1,21 @@
-import { createUUID } from "../util/helper";
+import moment from "moment";
+import { createUUID, getRandomArbitrary } from "../util/helper";
 
 export const ACTION_TYPE = {
   "ADD_TASK": "ADD_TASK",
+  "UPDATE_TASK": "UPDATE_TASK",
   "RESET_TASK": "RESET_TASK",
   "SHOW_MODAL": "SHOW_MODAL",
   "TOGGLE_MODAL": "TOGGLE_MODAL"
 };
 
-export const DUMMY_TASKS = [
+const DUMMY_TASKS = [
   {
     id: createUUID(),
     title: "Task Title",
     desc: "This is task descriptions...",
-    dueDate: new Date(),
-    createdAt: new Date("2-02-2021"),
+    dueDate: moment().add(getRandomArbitrary(), "days"),
+    createdAt: moment().add(getRandomArbitrary(), "days"),
     priority: "HIGH",
     state: "Compleated"
   },
@@ -21,8 +23,8 @@ export const DUMMY_TASKS = [
     id: createUUID(),
     title: "Task Title",
     desc: "This is task descriptions...",
-    dueDate: new Date(),
-    createdAt: new Date(),
+    dueDate: moment().add(getRandomArbitrary(), "days"),
+    createdAt: moment().add(getRandomArbitrary(), "days"),
     priority: "HIGH",
     state: "Pending"
   },
@@ -30,8 +32,8 @@ export const DUMMY_TASKS = [
     id: createUUID(),
     title: "Task Title",
     desc: "This is task descriptions...",
-    dueDate: new Date(),
-    createdAt: new Date(),
+    dueDate: moment().add(getRandomArbitrary(), "days"),
+    createdAt: moment().add(getRandomArbitrary(), "days"),
     priority: "HIGH",
     state: "Pending"
   },
@@ -39,8 +41,8 @@ export const DUMMY_TASKS = [
     id: createUUID(),
     title: "Task Title",
     desc: "This is task descriptions...",
-    dueDate: new Date(),
-    createdAt: new Date(),
+    dueDate: moment().add(getRandomArbitrary(), "days"),
+    createdAt: moment().add(getRandomArbitrary(), "days"),
     priority: "HIGH",
     state: "Pending"
   },
@@ -48,8 +50,8 @@ export const DUMMY_TASKS = [
     id: createUUID(),
     title: "Task Title",
     desc: "This is task descriptions...",
-    dueDate: new Date(),
-    createdAt: new Date(),
+    dueDate: moment().add(getRandomArbitrary(), "days"),
+    createdAt: moment().add(getRandomArbitrary(), "days"),
     priority: "HIGH",
     state: "Pending"
   },
@@ -57,8 +59,8 @@ export const DUMMY_TASKS = [
     id: createUUID(),
     title: "Task Title",
     desc: "This is task descriptions...",
-    dueDate: new Date(),
-    createdAt: new Date(),
+    dueDate: moment().add(getRandomArbitrary(), "days"),
+    createdAt: moment().add(getRandomArbitrary(), "days"),
     priority: "HIGH",
     state: "Pending"
   },
@@ -66,8 +68,8 @@ export const DUMMY_TASKS = [
     id: createUUID(),
     title: "Task Title",
     desc: "This is task descriptions...",
-    dueDate: new Date(),
-    createdAt: new Date(),
+    dueDate: moment().add(getRandomArbitrary(), "days"),
+    createdAt: moment().add(getRandomArbitrary(), "days"),
     priority: "HIGH",
     state: "Pending"
   },
@@ -75,8 +77,8 @@ export const DUMMY_TASKS = [
     id: createUUID(),
     title: "Task Title",
     desc: "This is task descriptions...",
-    dueDate: new Date(),
-    createdAt: new Date(),
+    dueDate: moment().add(getRandomArbitrary(), "days"),
+    createdAt: moment().add(getRandomArbitrary(), "days"),
     priority: "HIGH",
     state: "Pending"
   },
@@ -84,8 +86,8 @@ export const DUMMY_TASKS = [
     id: createUUID(),
     title: "Task Title",
     desc: "This is task descriptions...",
-    dueDate: new Date(),
-    createdAt: new Date(),
+    dueDate: moment().add(getRandomArbitrary(), "days"),
+    createdAt: moment().add(getRandomArbitrary(), "days"),
     priority: "HIGH",
     state: "Pending"
   },
@@ -93,8 +95,8 @@ export const DUMMY_TASKS = [
     id: createUUID(),
     title: "Task Title",
     desc: "This is task descriptions...",
-    dueDate: new Date(),
-    createdAt: new Date(),
+    dueDate: moment().add(getRandomArbitrary(), "days"),
+    createdAt: moment().add(getRandomArbitrary(), "days"),
     priority: "HIGH",
     state: "Compleated"
   },
@@ -102,8 +104,8 @@ export const DUMMY_TASKS = [
     id: createUUID(),
     title: "Task Title",
     desc: "This is task descriptions...",
-    dueDate: new Date(),
-    createdAt: new Date(),
+    dueDate: moment().add(getRandomArbitrary(), "days"),
+    createdAt: moment().add(getRandomArbitrary(), "days"),
     priority: "HIGH",
     state: "Compleated"
   },
@@ -111,8 +113,8 @@ export const DUMMY_TASKS = [
     id: createUUID(),
     title: "Task Title",
     desc: "This is task descriptions...",
-    dueDate: new Date(),
-    createdAt: new Date(),
+    dueDate: moment().add(getRandomArbitrary(), "days"),
+    createdAt: moment().add(getRandomArbitrary(), "days"),
     priority: "HIGH",
     state: "Compleated"
   },
@@ -120,9 +122,12 @@ export const DUMMY_TASKS = [
     id: createUUID(),
     title: "Task Title",
     desc: "This is task descriptions...",
-    dueDate: new Date(),
-    createdAt: new Date(),
+    dueDate: moment().add(getRandomArbitrary(), "days"),
+    createdAt: moment().add(getRandomArbitrary(), "days"),
     priority: "HIGH",
     state: "Compleated"
   }
 ]
+
+Object.freeze(DUMMY_TASKS);
+export default DUMMY_TASKS;

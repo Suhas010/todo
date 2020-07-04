@@ -7,3 +7,11 @@ export const createUUID = () => {
   });
   return uuid;
 }
+
+export const getRandomArbitrary = (min = 5, max = 20) => {
+  return Math.random() * (max - min) + min;
+}
+
+export const getSelectedTask = (selectedId, tasks) => {
+  return tasks.find(({ id }) => id == selectedId);
+}
