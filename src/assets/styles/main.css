@@ -30,3 +30,7 @@
 .ant-card-bordered:hover {
   box-shadow: 2px 6px 20px 0px #b7b7b7;
 }
+
+.ant-tabs-tabpane {
+  margin-left: 5%;
+}

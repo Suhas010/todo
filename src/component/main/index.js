@@ -38,7 +38,6 @@ const Main = ({ dispatchAction }) => {
 }
 
 const mapStateToProps = (root) => {
- console.log(root, "store")
  return root
 };
 const mapDispatchToProps = ({
