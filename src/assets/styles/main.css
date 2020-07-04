@@ -34,3 +34,10 @@
 .ant-tabs-tabpane {
   margin-left: 5%;
 }
+label {
+  font-weight: 900;
+}
+.ant-col {
+  margin-top: 3%;
+  margin-right: 2%;
+}
