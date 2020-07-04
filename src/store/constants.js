@@ -4,6 +4,7 @@ import { createUUID, getRandomArbitrary } from "../util/helper";
 export const ACTION_TYPE = {
   "ADD_TASK": "ADD_TASK",
   "UPDATE_TASK": "UPDATE_TASK",
+  "CHANGE_STATE": "CHANGE_STATE",
   "RESET_TASK": "RESET_TASK",
   "SHOW_MODAL": "SHOW_MODAL",
   "TOGGLE_MODAL": "TOGGLE_MODAL"

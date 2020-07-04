@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Tabs, Col, Row } from 'antd';
+import { Tabs, Col, Row, notification } from 'antd';
 import { connect } from 'react-redux';
 import moment from "moment";
 import { TASK_FILTER_CATERGORY, EDIT, ADD } from './constants';
@@ -11,14 +11,13 @@ import TaskForm from './taskForm';
 import { createUUID, getSelectedTask } from '../../util/helper';
 const { TabPane } = Tabs;
 const initialTask = {
-  name: "",
+  title: "",
   desc: "",
   priority: "Medium",
   state: "Pending",
   dueDate: moment().add(5, "days")
 };
 const TaskContainer = ({ tasks, modal, mode, dispatchAction, loading }) => {
-  console.log(tasks,"##")
 const [state, setState] = useState({
   activeTab: "All",
   task: initialTask,
@@ -41,7 +40,7 @@ const [state, setState] = useState({
   }
   
   const markDone = id => {
-    console.log(id)
+    dispatchAction(ACTION_TYPE.CHANGE_STATE, {id: id, state: "Compleated"})
   }
 
   const getTasksCards = () => {
@@ -49,7 +48,6 @@ const [state, setState] = useState({
     const { activeTab } = state;
     if(activeTab !== "All") {
       filteredTask = filteredTask.filter(({state}) => state == activeTab);
-      console.log(filteredTask.length,"!!")
     }
     return filteredTask.map(({ title, createdAt, desc, dueDate, id, state }, index) => (
       <Col sm={24} md={12} lg={7} span={1} key={id}>
@@ -107,20 +105,21 @@ const [state, setState] = useState({
     }
     if(id) {
       dispatchAction(ACTION_TYPE.UPDATE_TASK, state.task);
+      notification.success({title: "Success", message:"Task has been updated successfully.!!"});
     } else {
       let payload = {
         ...state.task,
-        state: "Pending",
         createdAt: moment(),
         id: createUUID()
       }
       dispatchAction(ACTION_TYPE.ADD_TASK, payload);
+      notification.success({title: "Success", message:"A new task has been added successfully.!!"});
     }
     setState({
       ...state,
       error
     });
-    console.log(state.task)
+    // console.log(state.task)
   };
 
   const getErrors = () => {

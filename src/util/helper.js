@@ -13,5 +13,8 @@ export const getRandomArbitrary = (min = 5, max = 20) => {
 }
 
 export const getSelectedTask = (selectedId, tasks) => {
-  return tasks.find(({ id }) => id == selectedId);
+  return tasks.find(({ id }) => id === selectedId);
+}
+export const getIndexOfSelectedTask = (selectedId, tasks) => {
+  return tasks.findIndex(({ id }) => id === selectedId);
 }
