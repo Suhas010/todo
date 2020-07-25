@@ -27,10 +27,9 @@
   bottom: 10px;
   z-index: 2;
 }
-.ant-card-bordered:hover {
-  box-shadow: 2px 6px 20px 0px #b7b7b7;
+.ant-card-body {
+  cursor: pointer;
 }
-
 .ant-tabs-tabpane {
   margin-left: 5%;
 }
@@ -40,4 +39,6 @@ label {
 .ant-col {
   margin-top: 3%;
   margin-right: 2%;
+  margin-bottom: 2%;
+
 }

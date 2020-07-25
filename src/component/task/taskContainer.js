@@ -21,7 +21,6 @@ const TaskContainer = ({ tasks, modal, mode, dispatchAction, loading }) => {
 const [state, setState] = useState({
   activeTab: "All",
   task: initialTask,
-  error: []
 });
 
   const isLoading = async function wait(ms) {
@@ -89,20 +88,11 @@ const [state, setState] = useState({
 
   const handleSave = () => {
     const { task : { title, desc, priority, dueDate, id }} = state;
-    let error = [];
-    
-    if(!title || title.length < 10 || title.length > 140) {
-      error.push("Error in title, Must contain more than 10 and less than 140 chars");
+    if(!title) {
+      notification.warning({title: "Warning", message: "Title should not be empty."});
     }
-    if(!desc ||  desc.length < 50 || desc.length > 500) {
-      error.push("Description must contain more than 50 and less 500 chars");
-    }
-    if(error.length) {
-      setState({
-        ...state,
-        error
-      });
-      return;
+    if(!desc) {
+      notification({title: "Warrning", message: "No description is provided"});
     }
     if(id) {
       dispatchAction(ACTION_TYPE.UPDATE_TASK, state.task);
@@ -116,39 +106,23 @@ const [state, setState] = useState({
       dispatchAction(ACTION_TYPE.ADD_TASK, payload);
       notification.success({title: "Success", message:"A new task has been added successfully.!!"});
     }
-    setState({
-      ...state,
-      error
-    });
-    // console.log(state.task)
-  };
-
-  const getErrors = () => {
-    const { error } = state;
-    return error.map(error => (
-      <div style={{color: "red"}}>
-        {error}
-      </div>
-    ));
   };
 
   const handleModalClose = () => {
-    dispatchAction(ACTION_TYPE.TOGGLE_MODAL, {modal: false, mode: true});
+    dispatchAction(ACTION_TYPE.TOGGLE_MODAL, {modal: false, mode: !mode});
     setState({
       ...state,
       task: initialTask,
-      error: []
     });
   };
 
   const getTaskModal = () => (
     <Modal
-      title={mode ? EDIT : ADD}
+      // title={mode ? EDIT : ADD}
       visible={modal}
       onOk={handleSave}
       onCancel={handleModalClose}
     >
-      {getErrors()}
       <TaskForm 
        task={state.task}
        handleChange={handleChange}

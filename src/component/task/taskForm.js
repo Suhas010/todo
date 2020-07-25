@@ -46,38 +46,6 @@ const TaskForm = ({
             style={{width: "100%"}}/>
         </Col>
       </Row>
-      <Row>
-        <Col sm={24} md={24} lg={24}>
-          <label>Priority</label>
-          <Select
-            value={state}
-            style={{ width: "100%" }}
-            onChange={(e)=>handleChange("state", e)}
-          >
-            {getOptions(["Pending", "Compleated"])}
-          </Select>
-        </Col>
-      </Row>
-      <Row>
-        <Col lg={12} sm={24} md={12}>
-          <label>Task Priority</label>
-          <Select
-            value={priority}
-            style={{ width: "100%" }}
-            onChange={(e)=>handleChange("priority", e)}
-          >
-            {getOptions(TASK_PRIORITIES)}
-          </Select>
-        </Col>
-        <Col>
-        <label>Due Date</label>
-          <DatePicker
-            style={{ width: "100%"}}
-            value={moment(dueDate)}
-            onChange={(e) => handleChange("dueDate", e)}
-          />
-        </Col>
-      </Row>
     </div>
   )
 }

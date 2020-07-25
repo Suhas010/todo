@@ -9,26 +9,17 @@ const TaskCard = ({
   id,
   title,
   desc,
-  state,
-  createdAt,
-  dueDate,
   loading,
-  handleEditClick,
-  markDone
+  markDone,
+  handleEditClick
 }) => {
-const actionItems = [
-  <span style={state === "Compleated" ? {color: "green", fontWeight: 900} : {color: "red", fontWeight: 900}}>{state}</span>,
-  <span style={{color: "green"}}>{getDate(createdAt)}</span>,
-  <span style={{color: "red"}}>{getDate(dueDate)}</span>,
-  <EditOutlined onClick={() => handleEditClick(id)}/>,
-];
+
 const markDoneAction = (<CheckCircleOutlined onClick={() => markDone(id)} />);
-if(state === "Pending") actionItems.push(markDoneAction);
   return (
     <Card
-      actions={actionItems}
-      style={{ width: 370, marginTop: 16 }}
+      style={{ maxWidth: 370, marginTop: 16 }}
       loading={loading}
+      onClick={() => handleEditClick(id)}
     >
       <Card.Meta
         title={title}

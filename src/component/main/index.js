@@ -23,16 +23,8 @@ const Main = ({ dispatchAction }) => {
       </div>
       <section id="main">
         <TaskContainer />
-      </section>
-      <Popconfirm
-        title="Wanna add new task?"
-        onConfirm={() => dispatchAction(ACTION_TYPE.TOGGLE_MODAL, {modal: true, mode: false})}
-        onCancel={() => {}}
-        okText="Yes"
-        cancelText="No"
-      >
-        <PlusCircleTwoTone  className="add-task"/>
-      </Popconfirm>
+      </section>      
+      <PlusCircleTwoTone  onClick={() => dispatchAction(ACTION_TYPE.TOGGLE_MODAL, {modal: true, mode: false})} className="add-task"/>
     </div>
   );
 }
